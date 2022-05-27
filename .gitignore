@@ -1,6 +1,2 @@
 venv
 .idea
-frontend/.idea/
-frontend/node_modules/
-frontend/node_modules/.bin/
-frontend/dist/
