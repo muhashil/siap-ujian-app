@@ -1,7 +1,6 @@
-node_modules/
-dist/
+node_modules
+dist
 .idea
-
 
 # Created by https://www.toptal.com/developers/gitignore/api/nuxtjs
 # Edit at https://www.toptal.com/developers/gitignore?templates=nuxtjs
