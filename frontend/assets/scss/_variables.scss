@@ -1,0 +1,112 @@
+//=======================
+// Global Variable
+//======================
+
+/* Base Color
+---------------------------------------------------*/
+$black: #000000 !default;
+$white: #FFFFFF !default;
+$blue: #1B499F !default;
+$blue-light: #DAE3F5 !default;
+$blue-grey: #E3EDFF !default;
+$blue-sky: #00c0ef !default;
+$blue-light-blue: #CFE9FF !default;
+$blue-secondary: #0051EE !default;
+$yellow: #F2C94C !default;
+$yellow-light: #FEF495 !default;
+$yellow-light-dark: #EFB71B !default;
+$yellow-extra-light: #FFFBD5 !default;
+$red: #EB5757 !default;
+$primary-color: #008FD7 !default;
+$dark-white: #F2F2F2 !default;
+$secondary-color:#5B626F !default;
+$extra-light: #C4C4C4 !default;
+$light-color: #2A3643 !default;
+$error-color:#FF3C3C !default;
+$info-color: #1B499F !default;
+$warning-color: #FFEC43 !default;
+$green-light: #48BCC4 !default;
+$green: #219653 !default;
+
+/* Background Color
+---------------------------------------------------*/
+$base-bg: #FFFFFF !default;
+$grey: #CED4DA !default;
+$light-grey-bg: #F1F6FA !default;
+$light-grey-extra-bg: #F9F9F9!default;
+$light-blue-bg: #F1F6FA !default;
+$stiped: #FCFCFC !default;
+
+/* Border Color
+---------------------------------------------------*/
+$base-border: #9AA5B9 !default;
+$blue-shadow: rgba(40, 155, 251, 0.3) !default;
+
+/* Link Color
+---------------------------------------------------*/
+// $link-base: #444444 !default;
+
+// $hover-link: #999999 !default;
+
+/* Button
+----------------------------------------------------*/
+$btn-default:#5B626F !default;
+$btn-primary: #1B499F !default;
+$btn-secondary: #FFEC43;
+$btn-hover: #0580E8 !default;
+
+
+/* Typography
+---------------------------------------------------*/
+$font-size-base: 1rem !default;
+$font-size-large: 1.5rem !default;
+$font-size-medium: 1.1250rem !default;
+$font-size-small: 0.8750rem !default;
+$font-size-extra-small	: 0.7500rem !default;
+
+$font-size-h1: 3rem !default;
+$font-size-h2: 2.125rem !default;
+$font-size-h3: 1.625rem !default;
+$font-size-h4: 1.1250rem !default;
+$font-size-h5: 0.8750rem !default;
+$font-size-h6: 0.7500rem !default;
+
+$line-height-base: 25px !default;
+$line-height-headings-single: 1.1 !default;
+$line-height-h1: calc((48 + 12) / 48) !default;
+$line-height-h2: calc((34 + 12) / 34) !default;
+$line-height-h3: calc((26 + 12) / 26) !default;
+$line-height-h4: calc((18 + 12) / 18) !default;
+$line-height-h5: calc((14 + 10) / 14) !default;
+$line-height-h6: calc((12 + 10) / 12) !default;
+
+
+/* Share Color
+------------------------------------------------------ */
+$facebook-color: #3b5998 !default;
+$twitter-color: #1da1f2 !default;
+$google-color: #e3411f !default;
+$youtube-color: #ca3737 !default;
+$linkedin-color: #0077b5 !default;
+
+/*
+ * Media queries breakpoints
+ * --------------------------------------------------- */
+
+// extra small screen / phone
+$screen-xs-phone: 320px !default;
+
+// super small screen / phone
+$screen-ss-phone: 375px !default;
+
+// small screen / phone
+$screen-sm: 425px !default;
+
+// medium screen / tablet
+$screen-md: 768px !default;
+
+// large screen / desktop
+$screen-lg: 1024px !default;
+
+// Super Large screen
+$screen-sl: 1440px !default;
