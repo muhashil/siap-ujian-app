@@ -1,8 +1,17 @@
+import os
+import environ
 from pathlib import Path
+
+env = environ.Env(
+    DEBUG=(bool, False)
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BACKEND_BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR = BACKEND_BASE_DIR.parent
+
+# Take environment variables from .env file
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -70,11 +79,11 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'siapujian_db',
-        'USER': 'postgres',
-        'PASSWORD': '123456',
-        'HOST': '13.215.204.73',
-        'PORT': '5432',
+        'NAME': env('DATABASE_NAME'),
+        'USER':  env('DATABASE_USER'),
+        'PASSWORD':  env('DATABASE_PASSWORD'),
+        'HOST':  env('DATABASE_HOST'),
+        'PORT':  env('DATABASE_PORT'),
     }
 }
 
@@ -134,3 +143,9 @@ REST_FRAMEWORK = {
 }
 
 BASE_DOMAIN_FOR_UPLOADS = 'http://127.0.0.1:8000'
+
+# File System Storage
+USE_REMOTE_STORAGE = True
+UPLOADER_SERVICE_URL = env('UPLOADER_SERVICE_URL')
+UPLOADER_SERVICE_TOKEN = env('UPLOADER_SERVICE_TOKEN')
+

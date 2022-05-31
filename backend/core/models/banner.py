@@ -1,12 +1,18 @@
 from django.db import models
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
 
 from backend.core.models.mixins import TimeStampedModel
+from backend.core.storage import CustomRemoteStorage
+
+def get_file_storage_system():
+    return CustomRemoteStorage() if settings.USE_REMOTE_STORAGE else FileSystemStorage
 
 
 class Banner(TimeStampedModel):
     title = models.CharField(max_length=250)
     description = models.TextField(null=True, blank=True)
-    image = models.ImageField(upload_to='uploads/banner/')
+    image = models.ImageField(storage=get_file_storage_system)
     url = models.TextField(null=True, blank=True)
 
     def __str__(self) -> str:
