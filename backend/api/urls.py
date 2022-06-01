@@ -19,5 +19,6 @@ urlpatterns = [
     path('banners', banner.ListBannerView.as_view()),
 
     # Materi
-    path('materi', materi.ListMateriView.as_view())
+    path('materi', materi.MateriViewSet.as_view({'get': 'list'})),
+    path('materi/<str:slug>', materi.MateriViewSet.as_view({'get': 'retrieve'}))
 ]

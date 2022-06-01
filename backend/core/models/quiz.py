@@ -9,6 +9,9 @@ class Quiz(TimeStampedModel):
     type = models.CharField(max_length=25, choices=TipeMateri.choices)
     title = models.CharField(max_length=250)
 
+    def __str__(self) -> str:
+        return f"{self.get_type_display()} - {self.title}"
+
     class Meta:
         db_table = 'quizes'
         verbose_name = 'Quiz'
@@ -16,14 +19,17 @@ class Quiz(TimeStampedModel):
 
 
 class Question(TimeStampedModel):
-    quiz = models.ForeignKey(to=Quiz, on_delete=models.CASCADE)
+    quiz = models.ForeignKey(to=Quiz, on_delete=models.CASCADE, null=True, blank=True)
     number = models.IntegerField(default=1, 
                                        validators=[MinValueValidator(limit_value=1), 
                                                    MaxValueValidator(limit_value=1000)])
     category = models.CharField(max_length=25, choices=KategoriMateri.choices)
     question = models.CharField(max_length=250)
-    sumber = models.CharField(max_length=100, null=True)
-    description = models.TextField(null=True, help_text='Question answer explanation.')
+    sumber = models.CharField(max_length=100, null=True, blank=True)
+    description = models.TextField(null=True, blank=True, help_text='Question answer explanation.')
+
+    def __str__(self) -> str:
+        return self.question
 
     class Meta:
         db_table = 'questions'
@@ -36,6 +42,9 @@ class Answer(TimeStampedModel):
     option = models.CharField(max_length=2, choices=AnswerCharacter.choices)
     answer = models.CharField(max_length=250)
     is_true = models.BooleanField(default=False)
+
+    def __str__(self) -> str:
+        return f"{self.get_option_display()}. {self.answer}"
 
 
     class Meta:
