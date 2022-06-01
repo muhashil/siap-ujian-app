@@ -15,7 +15,26 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '@/assets/scss/style.scss',
   ],
+  rules: [{
+    test: /\.scss$/,
+    use: [{
+      loader: "vue-style-loader"
+    }, {
+      loader: "css-loader", options: {
+        sourceMap: true
+      }
+    }, {
+      loader: "sass-loader", options: {
+        sourceMap: true
+      }
+    }, {
+      loader: "less-loader", options: {
+        sourceMap: true
+      }
+    }]
+  }],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [

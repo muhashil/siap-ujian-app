@@ -1,0 +1,39 @@
+.su {
+  &TextPrimary {
+    color: $primary-color;
+  }
+  &TopNavbar {
+    box-shadow: 0 2px 4px #00000014, 0 4px 12px #00000014;
+    z-index: 1010;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  &MainButtonNavigation {
+    :hover {
+      background-color: $primary-color;
+      color: $white;
+      cursor: pointer;
+    }
+    .bodyButton {
+      @media screen and (max-width: $screen-sm) {
+        padding: 10px;
+        font-size: 14px;
+      }
+    }
+  }
+  &News {
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    &Body {
+      @media screen and (max-width: $screen-ss) {
+        font-size: 14px;
+      }
+      .newsTitle {
+        @media screen and (max-width: $screen-ss) {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
