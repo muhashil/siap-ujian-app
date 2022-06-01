@@ -39,3 +39,7 @@ class CustomRemoteStorage(Storage):
 
     def get_available_name(self, name: str, max_length: Optional[int] = ...) -> str:
         return super().get_available_name(name, max_length)
+
+
+def get_file_storage_system():
+    return CustomRemoteStorage() if settings.USE_REMOTE_STORAGE else FileSystemStorage()

@@ -3,10 +3,8 @@ from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 
 from backend.core.models.mixins import TimeStampedModel
-from backend.core.storage import CustomRemoteStorage
+from backend.core.storage import get_file_storage_system
 
-def get_file_storage_system():
-    return CustomRemoteStorage() if settings.USE_REMOTE_STORAGE else FileSystemStorage
 
 
 class Banner(TimeStampedModel):
