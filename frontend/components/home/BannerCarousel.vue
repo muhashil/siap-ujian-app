@@ -4,7 +4,6 @@
     v-model="slide"
     :interval="4000"
     controls
-    indicators
     background="#FFFFFF"
     style="text-shadow: 1px 1px 2px #333;"
     @sliding-start="onSlideStart"

@@ -8,8 +8,10 @@
 </template>
 
 <script>
+import {BIconSearch} from 'bootstrap-vue'
 export default {
-  name: "FormSearch"
+  name: "FormSearch",
+  components: {BIconSearch}
 }
 </script>
 

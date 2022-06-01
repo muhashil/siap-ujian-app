@@ -6,16 +6,46 @@
       h6
         b Pengumuman
       BannerCarousel
+    div.mt-4
+      h6
+        b CPNS
+      div.d-flex.justify-content-between
+        MainButtonNavigation(label="MATERI" )
+          BIconBook
+        MainButtonNavigation(label="LATIHAN" )
+          BIconPencilSquare
+        MainButtonNavigation(label="UJIAN" )
+          BIconPatchCheck
+    div.mt-4
+      h6
+        b SBMPTN
+      div.d-flex.justify-content-between
+        MainButtonNavigation(label="MATERI" )
+          BIconBook
+        MainButtonNavigation(label="LATIHAN" )
+          BIconPencilSquare
+        MainButtonNavigation(label="UJIAN" )
+          BIconPatchCheck
+    div.mt-4
+      h6
+        b NEWS
+      NewsList
+
     //Tutorial
 </template>
 
 <script>
 import TopNavbar from "../components/header/TopNavbar";
-import {BIconSearch} from 'bootstrap-vue'
+import {BIconSearch, BIconBook, BIconPencilSquare, BIconPatchCheck} from 'bootstrap-vue'
 import FormSearch from "../components/home/FormSearch";
 import BannerCarousel from "../components/home/BannerCarousel";
+import MainButtonNavigation from "../components/home/MainButtonNavigation";
+import NewsList from "../components/home/NewsList";
 export default {
   name: 'IndexPage',
-  components: {BannerCarousel, FormSearch, TopNavbar, BIconSearch}
+  components: {
+    NewsList, BannerCarousel, FormSearch, TopNavbar, BIconSearch, BIconBook, BIconPencilSquare, BIconPatchCheck,
+    MainButtonNavigation
+  }
 }
 </script>
