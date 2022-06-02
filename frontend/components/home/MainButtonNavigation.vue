@@ -1,6 +1,6 @@
 <template lang="pug">
   div.card.suMainButtonNavigation
-    div.card-body.d-flex.align-items-center.bodyButton
+    div.card-body.bodyButton
       slot
       div.ml-1 {{label}}
 </template>
