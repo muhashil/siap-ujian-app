@@ -15,8 +15,14 @@
       cursor: pointer;
     }
     .bodyButton {
+      width: 75px;
+      height: 75px;
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       @media screen and (max-width: $screen-sm) {
-        padding: 10px;
         font-size: 14px;
       }
     }
