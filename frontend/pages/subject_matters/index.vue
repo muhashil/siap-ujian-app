@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import DetailNavbar from "../../components/header/DetailNavbar";
-import TabListMatter from "../../components/matters/TabListMatter";
+import DetailNavbar from "../../components/header/DetailNavbar"
+import TabListMatter from "../../components/matters/TabListMatter"
 export default {
   name: "SubjectMatter",
   components: {TabListMatter, DetailNavbar},
@@ -16,9 +16,19 @@ export default {
 
     }
   },
+  mounted() {
+    this.fetchMatters()
+  },
   methods: {
-
-  }
+    async fetchMatters() {
+      await this.$store.dispatch('fetchMatters');
+    }
+  },
+  computed: {
+    matters() {
+      return this.$store.state.matters
+    }
+  },
 }
 </script>
 
