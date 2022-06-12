@@ -1,4 +1,4 @@
-from typing import Dict, Sequence
+from typing import Dict, Sequence, Optional
 
 from django.contrib import admin
 
@@ -24,12 +24,21 @@ class QuizAdmin(admin.ModelAdmin):
     pass
 
 
-class QuestionAdmin(admin.ModelAdmin):
-    pass
+class AnswerInline(admin.TabularInline):
+    model = Answer
+    fields = ['option', 'answer', 'is_true']
+    extra: int = 4
+    max_num: Optional[int] = 4
 
+
+class QuestionAdmin(admin.ModelAdmin):
+    raw_id_fields: Sequence[str] = ['quiz']
+    inlines = [
+        AnswerInline
+    ]
 
 class AnswerAdmin(admin.ModelAdmin):
-    pass
+    raw_id_fields: Sequence[str] = ['question']
 
 
 admin.site.register(User, UserAdmin)

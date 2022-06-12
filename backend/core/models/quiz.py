@@ -20,9 +20,9 @@ class Quiz(TimeStampedModel):
 
 class Question(TimeStampedModel):
     quiz = models.ForeignKey(to=Quiz, on_delete=models.CASCADE, null=True, blank=True)
-    number = models.IntegerField(default=1, 
-                                       validators=[MinValueValidator(limit_value=1), 
-                                                   MaxValueValidator(limit_value=1000)])
+    # number = models.IntegerField(default=1, 
+    #                              validators=[MinValueValidator(limit_value=1), 
+    #                                          MaxValueValidator(limit_value=1000)])
     category = models.CharField(max_length=25, choices=KategoriMateri.choices)
     question = models.CharField(max_length=250)
     sumber = models.CharField(max_length=100, null=True, blank=True)
@@ -35,16 +35,19 @@ class Question(TimeStampedModel):
         db_table = 'questions'
         verbose_name = 'Question'
         verbose_name_plural = 'Questions'
+        # constraints = [
+        #     models.UniqueConstraint(fields=['number', 'quiz'], name='quiz unique question number'),
+        # ]
 
 
 class Answer(TimeStampedModel):
     question = models.ForeignKey(to=Question, on_delete=models.CASCADE)
     option = models.CharField(max_length=2, choices=AnswerCharacter.choices)
     answer = models.CharField(max_length=250)
-    is_true = models.BooleanField(default=False)
+    is_true = models.BooleanField(default=False, verbose_name='Is Correct?')
 
     def __str__(self) -> str:
-        return f"{self.get_option_display()}. {self.answer}"
+        return f"{self.question.question} - {self.option}. {self.answer}"
 
 
     class Meta:
