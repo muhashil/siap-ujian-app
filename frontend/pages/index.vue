@@ -10,22 +10,25 @@
       h6
         b CPNS
       div.d-flex.justify-content-between
-        MainButtonNavigation(label="MATERI" )
-          BIconBook
-        MainButtonNavigation(label="LATIHAN" )
-          BIconPencilSquare
+        div(@click="$router.push({path: '/subject_matters'})")
+          MainButtonNavigation(label="MATERI")
+            BIconBook.suFont22
+        div(@click="$router.push({path: '/questions'})")
+          MainButtonNavigation(label="LATIHAN" )
+            BIconPencilSquare.suFont22
         MainButtonNavigation(label="UJIAN" )
-          BIconPatchCheck
+          BIconPatchCheck.suFont22MATERI
     div.mt-4
       h6
         b SBMPTN
       div.d-flex.justify-content-between
-        MainButtonNavigation(label="MATERI" )
-          BIconBook
+        div(@click="$router.push({path: '/subject_matters'})")
+          MainButtonNavigation(label="MATERI" )
+            BIconBook.suFont22
         MainButtonNavigation(label="LATIHAN" )
-          BIconPencilSquare
+          BIconPencilSquare.suFont22
         MainButtonNavigation(label="UJIAN" )
-          BIconPatchCheck
+          BIconPatchCheck.suFont22
     div.mt-4
       h6
         b NEWS
@@ -46,6 +49,9 @@ export default {
   components: {
     NewsList, BannerCarousel, FormSearch, TopNavbar, BIconSearch, BIconBook, BIconPencilSquare, BIconPatchCheck,
     MainButtonNavigation
+  },
+  methods: {
+
   }
 }
 </script>
