@@ -1,6 +1,15 @@
 .su {
+  &Font22 {
+    font-size: 22px;
+  }
+  &Font24 {
+    font-size: 24px;
+  }
   &TextPrimary {
     color: $primary-color;
+  }
+  &ButtonPrimary {
+    background-color: $primary-color;
   }
   &TopNavbar {
     box-shadow: 0 2px 4px #00000014, 0 4px 12px #00000014;
@@ -17,13 +26,14 @@
     .bodyButton {
       width: 75px;
       height: 75px;
-      padding: 5px;
+      padding: 50px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       @media screen and (max-width: $screen-sm) {
         font-size: 14px;
+        padding: 5px;
       }
     }
   }
