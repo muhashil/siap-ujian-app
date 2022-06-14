@@ -10,7 +10,7 @@
       h6
         b CPNS
       div.d-flex.justify-content-between
-        div(@click="$router.push({path: '/subject_matters'})")
+        div(@click="$router.push({path: '/materi'})")
           MainButtonNavigation(label="MATERI")
             BIconBook.suFont22
         div(@click="$router.push({path: '/questions'})")
@@ -22,7 +22,7 @@
       h6
         b SBMPTN
       div.d-flex.justify-content-between
-        div(@click="$router.push({path: '/subject_matters'})")
+        div(@click="$router.push({path: '/materi'})")
           MainButtonNavigation(label="MATERI" )
             BIconBook.suFont22
         MainButtonNavigation(label="LATIHAN" )

@@ -9,36 +9,14 @@
     @sliding-start="onSlideStart"
     @sliding-end="onSlideEnd"
   >
-    <b-carousel-slide>
+    <b-carousel-slide v-for="(item, index) in banners">
       <template #img>
         <img
           class="d-block img-fluid w-100"
           height="380"
-          src="https://picsum.photos/1024/380/?image=52"
-          alt="image slot"
-          style="border-radius: 20px;"
-        >
-      </template>
-    </b-carousel-slide>
-    <b-carousel-slide>
-      <template #img>
-        <img
-          class="d-block img-fluid w-100"
-          height="380"
-          src="https://picsum.photos/1024/380/?image=54"
-          alt="image slot"
-          style="border-radius: 20px;"
-        >
-      </template>
-    </b-carousel-slide>
-    <b-carousel-slide>
-      <template #img>
-        <img
-          class="d-block img-fluid w-100"
-          height="380"
-          src="https://picsum.photos/1024/380/?image=55"
-          alt="image slot"
-          style="border-radius: 20px;"
+          :src="item.image"
+          :alt="item.title"
+          style="border-radius: 15px;"
         >
       </template>
     </b-carousel-slide>
@@ -54,12 +32,23 @@ export default {
       sliding: null
     }
   },
+  mounted() {
+    this.fetchBanner()
+  },
   methods: {
+    async fetchBanner() {
+      await this.$store.dispatch('fetchBanner');
+    },
     onSlideStart(slide) {
       this.sliding = true
     },
     onSlideEnd(slide) {
       this.sliding = false
+    }
+  },
+  computed:{
+    banners(){
+      return this.$store.getters.getBanner
     }
   }
 }

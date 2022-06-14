@@ -16,7 +16,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '@/assets/scss/style.scss',
+    '@/assets/scss/style.scss'
   ],
   rules: [{
     test: /\.scss$/,
@@ -39,6 +39,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/vue-loading.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -69,6 +70,11 @@ export default {
     manifest: {
       lang: 'en'
     }
+  },
+
+  loading: {
+    color: '#008FD7',
+    height: '3px'
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

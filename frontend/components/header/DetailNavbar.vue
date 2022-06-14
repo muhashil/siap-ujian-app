@@ -2,7 +2,7 @@
   <b-navbar class="suTopNavbar text-dark" fixed="top" type="pink" variant="light">
     <b-navbar-brand href="javascript:void(0)" class="text-dark">
       <BIconArrowLeft @click="$router.go(-1)" />
-      Materi CPNS
+      {{title}}
     </b-navbar-brand>
   </b-navbar>
 </template>
@@ -13,6 +13,9 @@ export default {
   name: "DetailNavbar",
   components: {
     BIconArrowLeft
+  },
+  props: {
+    title: String
   }
 }
 </script>

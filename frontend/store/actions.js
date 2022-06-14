@@ -1,13 +1,47 @@
 import path from "../utils/path";
 
 export default {
-  async fetchMatters({ commit }) {
+  async fetchBanner({ commit }) {
     try {
       commit('setLoading', true)
-      let res = await this.$axios.get(path.matters.base)
-      commit('setMatter', res)
+      let res = await this.$axios.get(path.banner.base)
+      if (res.data.action) {
+        commit('setBanner', res.data.result)
+        commit('setLoading', false)
+      }
     } catch(error) {
       commit('setLoading', false)
+    } finally {
+      commit('setLoading', false)
+    }
+  },
+  async fetchMatter({ commit }) {
+    try {
+      commit('setLoading', true)
+      let res = await this.$axios.get(path.matter.base)
+      if (res.data.action) {
+        commit('setMatter', res.data.result)
+        commit('setLoading', false)
+      }
+    } catch(error) {
+      commit('setLoading', false)
+    } finally {
+      commit('setLoading', false)
+    }
+  },
+  async fetchMatterDetail({ commit }, slug) {
+    try {
+      commit('setLoading', true)
+      let res = await this.$axios.get(path.matter.detail.replace('{slug}', slug))
+      if (res.data.action) {
+        commit('setDetailMatter', res.data.result)
+        commit('setLoading', false)
+        return res.data.result
+      }
+      return null
+    } catch(error) {
+      commit('setLoading', false)
+      return error
     } finally {
       commit('setLoading', false)
     }
