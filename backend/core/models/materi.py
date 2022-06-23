@@ -12,7 +12,7 @@ class Materi(TimeStampedModel):
     type = models.CharField(max_length=25, choices=TipeMateri.choices)
     category = models.CharField(max_length=25, choices=KategoriMateri.choices)
     title = models.CharField(max_length=250)
-    slug = models.SlugField(max_length=250)
+    slug = models.SlugField(max_length=250, unique=True)
     content = models.TextField()
     file = models.FileField(storage=get_file_storage_system, null=True, blank=True)
 

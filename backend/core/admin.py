@@ -5,7 +5,7 @@ from django.contrib import admin
 from backend.core.models.user import User
 from backend.core.models.banner import Banner
 from backend.core.models.materi import Materi
-from backend.core.models.quiz import Quiz, Question, Answer
+from backend.core.models.quiz import QuestionImage, Quiz, Question, Answer
 
 
 class UserAdmin(admin.ModelAdmin):
@@ -30,14 +30,24 @@ class AnswerInline(admin.TabularInline):
     extra: int = 4
     max_num: Optional[int] = 4
 
+class QuestionImageInline(admin.TabularInline):
+    model = QuestionImage
+    fields = ['title', 'image', 'source']
+    extra: int = 1
+
 
 class QuestionAdmin(admin.ModelAdmin):
     raw_id_fields: Sequence[str] = ['quiz']
     inlines = [
-        AnswerInline
+        AnswerInline,
+        QuestionImageInline
     ]
 
 class AnswerAdmin(admin.ModelAdmin):
+    raw_id_fields: Sequence[str] = ['question']
+
+
+class QuestionImageAdmin(admin.ModelAdmin):
     raw_id_fields: Sequence[str] = ['question']
 
 
@@ -47,3 +57,4 @@ admin.site.register(Materi, MateriAdmin)
 admin.site.register(Quiz, QuizAdmin)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Answer, AnswerAdmin)
+admin.site.register(QuestionImage, QuestionImageAdmin)

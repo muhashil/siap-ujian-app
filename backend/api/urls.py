@@ -23,5 +23,7 @@ urlpatterns = [
     path('materi/<str:slug>', materi.MateriViewSet.as_view({'get': 'retrieve'})),
 
     path('quizes', quiz.QuizViewSet.as_view({'get': 'list'})),
-    path('quizes/<int:quiz_id>/questions', quiz.QuizViewSet.as_view({'get': 'list_questions'}))
+    path('quizes/<int:quiz_id>/questions', quiz.QuizViewSet.as_view({'get': 'list_questions'})),
+
+    path('questions/<str:slug>', quiz.QuestionViewSet.as_view({'get': 'retrieve'}))
 ]
