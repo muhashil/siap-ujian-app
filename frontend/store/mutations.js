@@ -21,4 +21,12 @@ export default {
   setDetailQuiz(state, payload) {
     state.quiz.detail = payload
   },
+
+  // Question
+  setQuestion(state, payload) {
+    state.question.list = payload
+  },
+  setDetailQuestion(state, payload) {
+    state.question.detail = payload
+  },
 }

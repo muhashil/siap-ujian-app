@@ -21,4 +21,12 @@ export default {
   getDetailQuiz(state) {
     return state.quiz.detail
   },
+
+  //Question
+  getQuestion(state) {
+    return state.question.list
+  },
+  getDetailQuestion(state) {
+    return state.question.detail
+  },
 }

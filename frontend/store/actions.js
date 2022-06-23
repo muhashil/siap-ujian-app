@@ -76,5 +76,22 @@ export default {
     } finally {
       commit('setLoading', false)
     }
+  },
+  async fetchQuestionDetail({ commit }, slug) {
+    try {
+      commit('setLoading', true)
+      let res = await this.$axios.get(path.question.detail.replace('{slug}', slug))
+      if (res.data.action) {
+        commit('setDetailQuestion', res.data.result)
+        commit('setLoading', false)
+        return res.data.result
+      }
+      return null
+    } catch(error) {
+      commit('setLoading', false)
+      return error
+    } finally {
+      commit('setLoading', false)
+    }
   }
 }

@@ -9,7 +9,11 @@ const path = {
   },
   quiz: {
     base: prefix+'/quizes',
-    detail: prefix+'/materi/{slug}',
+    detail: prefix+'/quizes/{slug}',
+  },
+  question: {
+    base: prefix+'/questions',
+    detail: prefix+'/questions/{slug}',
   },
 }
 export default path

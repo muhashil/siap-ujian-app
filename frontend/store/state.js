@@ -9,4 +9,9 @@ export default {
     list: [],
     detail: {}
   },
+
+  question: {
+    list: [],
+    detail: {}
+  },
 }

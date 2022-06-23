@@ -20,7 +20,7 @@ import DetailNavbar from "../../components/header/DetailNavbar";
 import TabListMatter from "../../components/matters/TabListMatter";
 import Loading from "vue-loading-overlay";
 export default {
-  name: "Quiz",
+  name: "QuizPage",
   components: {TabListMatter, DetailNavbar, Loading},
   data() {
     return {

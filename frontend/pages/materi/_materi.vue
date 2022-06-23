@@ -6,13 +6,20 @@
       .col-12.mb-4
         b-card(:header="matter.title")
           b-card-text {{matter.content}}
+    Loading(
+      :active="isLoading"
+      :is-full-page="true"
+      loader="bars"
+      background-color="#4B4B4B"
+      color="#008FD7")
 </template>
 
 <script>
+import Loading from "vue-loading-overlay";
 import DetailNavbar from "../../components/header/DetailNavbar";
 export default {
   name: "_materi",
-  components: {DetailNavbar},
+  components: {DetailNavbar, Loading},
   data() {
     return {
     }
@@ -23,12 +30,15 @@ export default {
   methods: {
     async fetchDetailMatter() {
       let res = await this.$store.dispatch('fetchMatterDetail', this.$route.params.materi)
-      if (!res) return this.$router.push({name: 'SubjectMatter'})
+      if (!res) return this.$router.push({name: 'SubjectMatterPage'})
     }
   },
   computed: {
     matter() {
       return this.$store.getters.getDetailMatter
+    },
+    isLoading() {
+      return this.$store.getters.getLoading
     }
   }
 }

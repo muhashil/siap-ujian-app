@@ -16,7 +16,7 @@ import Loading from "vue-loading-overlay";
 import DetailNavbar from "../../components/header/DetailNavbar"
 import TabListMatter from "../../components/matters/TabListMatter"
 export default {
-  name: "SubjectMatter",
+  name: "SubjectMatterPage",
   components: {TabListMatter, DetailNavbar, Loading},
   data() {
     return {
