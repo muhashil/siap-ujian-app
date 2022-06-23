@@ -45,5 +45,36 @@ export default {
     } finally {
       commit('setLoading', false)
     }
+  },
+  async fetchQuiz({ commit }) {
+    try {
+      commit('setLoading', true)
+      let res = await this.$axios.get(path.quiz.base)
+      if (res.data.action) {
+        commit('setQuiz', res.data.result)
+        commit('setLoading', false)
+      }
+    } catch(error) {
+      commit('setLoading', false)
+    } finally {
+      commit('setLoading', false)
+    }
+  },
+  async fetchQuizDetail({ commit }, slug) {
+    try {
+      commit('setLoading', true)
+      let res = await this.$axios.get(path.quiz.detail.replace('{slug}', slug))
+      if (res.data.action) {
+        commit('setDetailQuiz', res.data.result)
+        commit('setLoading', false)
+        return res.data.result
+      }
+      return null
+    } catch(error) {
+      commit('setLoading', false)
+      return error
+    } finally {
+      commit('setLoading', false)
+    }
   }
 }

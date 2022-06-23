@@ -13,7 +13,7 @@
         div(@click="$router.push({path: '/materi'})")
           MainButtonNavigation(label="MATERI")
             BIconBook.suFont22
-        div(@click="$router.push({path: '/questions'})")
+        div(@click="$router.push({path: '/quiz'})")
           MainButtonNavigation(label="LATIHAN" )
             BIconPencilSquare.suFont22
         MainButtonNavigation(label="UJIAN" )

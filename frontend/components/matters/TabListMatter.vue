@@ -6,7 +6,7 @@
         .col-12.mb-4(v-for="(item, key) in data" )
           b-card(:header="`Materi ${key+1}`")
             h5.mb-3 {{item.title}}
-            b-button.suButtonPrimary(:href="`/materi/${item.slug}`" variant="info" ) Pelajari
+            b-button.suButtonPrimary(:href="button.url.replace('{slug}', $route.name === 'materi' ? item.slug : item.id)" variant="info" ) {{button.text}}
     b-tab(title="TIU")
       b-card-text TIU adalah tes yang di selenggarakan cpns mengenai wawasan kebangsaan dan pancasila
       .row
@@ -35,6 +35,15 @@ export default {
       type: Array,
       default: function () {
         return []
+      }
+    },
+    button: {
+      type: Object,
+      default: function () {
+        return {
+          url: '',
+          text: ''
+        }
       }
     }
   },

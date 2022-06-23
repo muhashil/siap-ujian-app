@@ -1,6 +1,12 @@
 export default {
   is_loading: false,
-  matters: [],
-  matter: {},
   banners: [],
+  matter: {
+    list: [],
+    detail: {}
+  },
+  quiz: {
+    list: [],
+    detail: {}
+  },
 }

@@ -2,7 +2,7 @@
   b-container(fluid style="max-width: 500px; padding: 0;")
     DetailNavbar(title="Materi CPNS")
     div(style="margin-top: 55px;")
-    TabListMatter(:data="matters")
+    TabListMatter(:data="matters" :button="{text: 'Pelajari', url: '/materi/{slug}'}")
     Loading(
       :active="isLoading"
       :is-full-page="true"
