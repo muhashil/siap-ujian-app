@@ -16,3 +16,6 @@ class AnswerCharacter(models.TextChoices):
     C = 'C', 'Option C'
     D = 'D', 'Option D'
 
+class ImageSource(models.TextChoices):
+    QUESTION = 'question', 'Question Image'
+    DESCRIPTION = 'description', 'Description Image'
