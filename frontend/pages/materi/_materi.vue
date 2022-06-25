@@ -1,6 +1,6 @@
 <template lang="pug">
   b-container(fluid style="max-width: 500px; padding: 0;")
-    DetailNavbar(title="Detail Materi")
+    DetailNavbar(title="Detail Materi" back-url="/materi" )
     div(style="margin-top: 70px;")
     .row
       .col-12.mb-4
@@ -34,6 +34,9 @@ export default {
     }
   },
   computed: {
+    matters() {
+      return this.$store.getters.getMatter
+    },
     matter() {
       return this.$store.getters.getDetailMatter
     },

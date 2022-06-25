@@ -25,8 +25,8 @@ class QuizViewSet(viewsets.GenericViewSet):
         return Response(response.to_dict(), status=response.status)
 
     def list_questions(self, request, *args, **kwargs):
-        quiz_id = kwargs.get('quiz_id')
-        quiz = get_object_or_404(Quiz.objects.filter(deleted_at__isnull=True), pk=quiz_id)
+        slug = kwargs.get('slug')
+        quiz = get_object_or_404(Quiz.objects.filter(deleted_at__isnull=True), slug=slug)
         questions = Question.objects.filter(quiz=quiz, deleted_at__isnull=True)
 
         serializer = QuestionSerializer(questions, many=True)

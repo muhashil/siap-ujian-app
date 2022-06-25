@@ -12,7 +12,7 @@ const path = {
     detail: prefix+'/quizes/{slug}',
   },
   question: {
-    base: prefix+'/questions',
+    base: prefix+'/quizes/{slug}/questions',
     detail: prefix+'/questions/{slug}',
   },
 }

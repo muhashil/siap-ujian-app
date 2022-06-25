@@ -1,6 +1,6 @@
 <template lang="pug">
   b-container(fluid style="max-width: 500px; padding: 0;")
-    DetailNavbar(title="Materi CPNS")
+    DetailNavbar(title="Materi CPNS" back-url="/" )
     div(style="margin-top: 55px;")
     TabListMatter(:data="matters" :button="{text: 'Pelajari', url: '/materi/{slug}'}")
     Loading(

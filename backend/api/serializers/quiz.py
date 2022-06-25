@@ -19,10 +19,14 @@ class AnswerSerializer(serializers.ModelSerializer):
 
 class QuestionSerializer(serializers.ModelSerializer):
     answers = serializers.SerializerMethodField()
+    images = serializers.SerializerMethodField()
 
     def get_answers(self, obj):
         answers = obj.answer_set.all()
         return AnswerSerializer(answers, many=True).data
+    def get_images(self, obj):
+        images = obj.questionimage_set.all()
+        return QuestionImageSerializer(images, many=True).data
 
     class Meta:
         model = Question
